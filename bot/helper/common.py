@@ -10,6 +10,7 @@ from re import sub, I
 from bot import (
     DOWNLOAD_DIR,
     MAX_SPLIT_SIZE,
+    LEECH_DUMP_CHAT,
     config_dict,
     user_data,
     IS_PREMIUM_USER,
