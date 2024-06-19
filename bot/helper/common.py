@@ -71,7 +71,8 @@ from bot.helper.telegram_helper.message_utils import (
 
 
 class TaskConfig:
-    def __init__(self):
+    def __init__(self, message):
+        self.message = message
         self.mid = self.message.id
         self.user = self.message.from_user or self.message.sender_chat
         self.userId = self.user.id
@@ -101,8 +102,6 @@ class TaskConfig:
         self.compress = False
         self.select = False
         self.seed = False
-        self.compress = False
-        self.extract = False
         self.join = False
         self.privateLink = False
         self.stopDuplicate = False
@@ -120,6 +119,7 @@ class TaskConfig:
         self.thumb = None
         self.extensionFilter = []
         self.isSuperChat = self.message.chat.type.name in ["SUPERGROUP", "CHANNEL"]
+        self.dumpChannelId = config_dict.get("LEECH_DUMP_CHAT", None)
 
     def getTokenPath(self, dest):
         if dest.startswith("mtp:"):
